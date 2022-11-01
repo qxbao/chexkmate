@@ -1,0 +1,43 @@
+@keyframes spin {
+    from {transform: none;}
+    to {transform: rotateY(360deg);}
+}
+
+#welcomePanel {
+    background: url('/images/chess1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#welcomePanel .container-fluid{
+    background: rgb(0,0,0,0.3)
+}
+
+#kingSpinner {
+    animation: spin 10s infinite;
+}
+
+#registerPanel {
+    background: var(--main-color-darker);   
+}
+
+#registerCard {
+    background:#0f0f0f;
+    color: #dcdcdc;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #0f0f0f;
+    border:none;
+}
+
+label {
+    margin-bottom: .3rem;
+}
+
+label:not(#refLabel)::after{
+    content: ' *';
+    color: red;
+}
+
+input {
+    font-family: 'Gilroy';
+}

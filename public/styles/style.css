@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/GilroyMedium.otf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/GilroyLight.otf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/GilroyBold.otf');
+    font-weight: 500;
+}
+
+:root {
+    --font-color: #171717;
+    --bg-color: white;
+    --nav-logo-color: #33333E;
+    --main-color: #27AE60;
+    --main-color-darker: #109346;
+    --nav-shadow-color: grey;
+    --nav-bg-color: #eaeaea;
+    --nav-inactive: #606060;
+    --nav-inactive-hover: #1c1c1c;
+}
+
+[theme='dark'] {
+    --bg-color: #1b1b1b;
+    --font-color: #c2c2c2;
+    --nav-bg-color: #0f0f0f;
+    --nav-logo-color: #d0d0d0;
+    --nav-shadow-color: var(--nav-bg-color);
+    --nav-inactive: #b1b1b1;
+    --nav-inactive-hover: white;
+}
+
+* {
+    transition: .3s all;
+}
+
+body {
+    font-family: 'Gilroy';
+    color: var(--font-color);
+    background: var(--bg-color);
+}
+
+nav {
+    color: var(--font-color) !important;
+    background: var(--nav-bg-color);
+    box-shadow: 0 0 5px var(--nav-shadow-color);
+}
+
+#navLogo {
+    color: var(--nav-logo-color) !important;
+}
+
+.nav-link {
+    transition: .3s all;
+    color: var(--nav-inactive);
+    font-weight: 400;
+    padding: .5rem;
+}
+
+.nav-link:not(.active):hover{
+    color: var(--nav-inactive-hover);
+    transform: translateY(-3px);
+}
+.nav-link:not(.active):focus {
+    color: var(--nav-inactive-hover);
+}
+
+.nav-link.active {
+    background: var(--main-color) !important;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.playfair {
+    font-family: 'Playfair Display';
+}
+
+.mainButton {
+    color: #0f0f0f !important;
+    background: var(--main-color) ;
+    border: none;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.mainButton:hover{
+    background: var(--main-color-darker);
+}
+
+.mainButtonOutline {
+    border: 2px solid var(--main-color);
+    border-radius: 3px;
+    background: rgb(0,0,0,0.7);
+    color: var(--main-color) !important;
+    font-weight: 500;
+}
+
+.mainButtonOutline:hover {
+    background: rgb(0,0,0);
+}
+
+.mainButtonOutline:active, .mainButton:active{
+    transform: scale(0.95);
+}
+
+.mainInput {
+    border: 2px solid var(--main-color-darker);
+    background: transparent;
+    color: var(--main-color);
+    outline: none !important;
+    border-radius: 3px;
+}
+
+.mainInput:focus {
+    transform: scale(1.05);
+    background: rgb(0,0,0,0.5);
+}

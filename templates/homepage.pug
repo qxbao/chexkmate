@@ -1,0 +1,78 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Trang chủ - Chexkmate
+        include lib
+        link(href="/styles/home.css" rel="stylesheet")
+        script(src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js" integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD" crossorigin="anonymous")
+        link(rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css" integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU" crossorigin="anonymous")
+        script(src="/lib/chess.js") 
+    body(theme='dark')
+        include navbar
+        #welcomePanel
+            .container-fluid.p-0.justify-content-center.d-flex.flex-column.align-items-center.text-center.h-100
+                img#kingSpinner.mb-3(src="/img/chesspieces/wikipedia/wK.png" alt="white king image")
+                button.mainButton.py-2.px-5.shadow.mb-3 Đăng nhập
+                a(href="/#registerPanel").text-decoration-none.mainButtonOutline.py-2.px-5.shadow Đăng ký
+            script.
+                $(document).ready(() => {
+                    const h = $(window).height() - $('nav').outerHeight();
+                    $('#welcomePanel').css('height', h + 'px')
+                })
+        #introductionPanel
+            .container.py-lg-5.py-4
+                .row
+                    .col-12.col-md-8
+                        h1.playfair.fw-bold.mb-4(style="color:var(--main-color)") Giới thiệu
+                        .px-2
+                            p Project Chexkmate được phát triển nhằm mục đích lưu trữ kiến thức và xây dựng khóa học giúp cải thiện kỹ năng chơi cờ vua bằng Tiếng Việt (miễn phí). Tôi tôn trọng mọi quyền tác giả nên mọi trích dẫn hay bài viết được dịch lại sẽ được ghi nguồn đầy đủ. Ngược lại, với những bài viết có nguồn gốc từ Chexkmate, xin hãy ghi nguồn khi sao chép lại, vô cùng cảm ơn.
+                            p Dự án sử dụng thư viện 
+                                u chessboard.js
+                                |,  
+                                u chess.js
+                                |  và các engine như Stockfish để khởi tạo bàn cờ và tạo đối thủ, mô phỏng các ví dụ làm tăng tính trực quan. Bài viết về những khái niệm này sẽ sớm được viết.
+                            p Đây là một dự án open-source. Bạn có thể clone toàn bộ project và tự chạy một server dễ dàng qua Github. Nếu cần hỗ trợ config server, xin đừng liên hệ tôi :D
+                            p Hiện tại, Chexkmate đang được phát triển bởi 1 một người. Nếu có đam mê về cờ vua hoặc muốn tham gia vì một lí do nào đó, liên hệ tôi qua: @qnba0 (Instagram)
+                    .col-12.col-md
+                        #exampleChessboard.w-100
+                        p.text-center
+                            i Ví dụ về một bàn cờ được khởi tạo bằng chessboard.js
+                        script.
+                            let exampleBoard = ChessBoard('exampleChessboard', 'start')
+        #registerPanel
+            .container.py-lg-5.py-4
+                h1.playfair.fw-bold.mb-4.text-center(style="color: #0f0f0f") Đăng ký tài khoản
+                .row
+                    .col-lg-8.col-12.m-auto
+                        p(style="color: #0f0f0f") Vì lí do chi phí và những giới hạn khác, hầu hết dịch vụ chỉ được cung cấp cho nhóm đối tượng nhất định (người dùng đã xác minh). Vì vậy, đăng ký tài khoản là một bước quan trọng để tiếp tục đồng hành cùng chúng tôi.
+                        .card#registerCard
+                            .card-body.py-4
+                                .container-fluid
+                                    .row
+                                        .col-12.col-lg-8.playfair.mb-4.mb-lg-0
+                                            .row
+                                                .col-12.col-lg-5.mb-3
+                                                    label Tên người dùng
+                                                    input.w-100.mainInput.px-2.py-1(placeholder="8 - 12 chữ & số")
+                                                .col-12.col-lg.mb-3
+                                                    label Email
+                                                    input.w-100.mainInput.px-2.py-1(placeholder="Nhận mã xác minh")
+                                            .mb-3
+                                                label Mật khẩu
+                                                input.w-100.mainInput.px-2.py-1(placeholder="Từ 8 ký tự trở lên" type="password")
+                                            .mb-3
+                                                label Nhập lại mật khẩu
+                                                input.w-100.mainInput.px-2.py-1
+                                            .mb-3
+                                                label#refLabel Refferal Code
+                                                input.w-100.mainInput.px-2.py-1(placeholder="optional")
+                                            small.d-block Bằng việc đăng ký tài khoản, bạn đồng ý tuân thủ mọi điều khoản và chính sách của chúng tôi.
+                                            
+                                        .col.d-flex.align-items-center
+                                            div.w-100
+                                                button.btn-d-block.w-100.mainButtonOutline.py-2.mb-2 ĐĂNG KÝ
+                                                p.text-center.mb-2 Đã có tài khoản?
+                                                button.btn-d-block.w-100.mainButton.py-2.mb-2 Đăng nhập ngay
